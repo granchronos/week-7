@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<div th:replace="~{fragments/nav.html}"></div>
+
+<main class="flex-grow-1">
+    <div class="container mt-5">
+        <h2>Edit Customer</h2>
+        <form action="#" th:action="@{/customer/edit}" th:object="${customer}" method="post">
+            <input type="hidden" th:field="*{id}">
+            <label for="name">Name: </label>
+            <input type="text" class="form-control" id="name" th:field="*{name}" th:placeholder="Name"/>
+            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red;"></div><br>
+
+            <label for="lastName">Last Name: </label>
+            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" th:placeholder="LastName"/>
+            <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color:red;"></div><br>
+
+            <label for="email">Email: </label>
+            <input type="email" class="form-control" id="email" th:field="*{email}" th:placeholder="Email"/>
+            <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red;"></div><br>
+
+            <label for="birthday">Birthday: </label>
+            <input type="date" class="form-control" id="birthday" th:field="*{birthday}" th:placeholder="Birthday"/>
+            <div th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" style="color:red;"></div><br>
+
+            <button class="btn btn-primary" type="submit">Edit</button>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer.html}"></div>
+
+<!-- Bootstrap JS y dependencias -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Home</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<div th:replace="~{fragments/nav.html}"></div>
+
+<main class="flex-grow-1">
+    <div class="container mt-5">
+        <h2>Register Customer</h2>
+        <form action="#" method="post" th:action="@{/customer/register}" th:object="${customer}">
+            <label for="name">Name: </label>
+            <input class="form-control" id="name" th:field="*{name}" th:placeholder="Name" type="text"/>
+            <div style="color:red;" th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></div>
+            <br>
+
+            <label for="lastName">Last Name: </label>
+            <input class="form-control" id="lastName" th:field="*{lastName}" th:placeholder="LastName" type="text"/>
+            <div style="color:red;" th:errors="*{lastName}" th:if="${#fields.hasErrors('lastName')}"></div>
+            <br>
+
+            <label for="email">Email: </label>
+            <input class="form-control" id="email" th:field="*{email}" th:placeholder="Email" type="email"/>
+            <div style="color:red;" th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></div>
+            <br>
+
+            <label for="birthday">Birthday: </label>
+            <input class="form-control" id="birthday" th:field="*{birthday}" th:placeholder="Birthday" type="date"/>
+            <div style="color:red;" th:errors="*{birthday}" th:if="${#fields.hasErrors('birthday')}"></div>
+            <br>
+
+            <label for="password">Password: </label>
+            <input class="form-control" id="password" th:field="*{password}" th:placeholder="Password" type="password"/>
+            <div style="color:red;" th:errors="*{password}" th:if="${#fields.hasErrors('password')}"></div>
+            <br>
+
+            <button class="btn btn-primary" type="submit">Register</button>
+        </form>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer.html}"></div>
+
+<!-- Bootstrap JS y dependencias -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

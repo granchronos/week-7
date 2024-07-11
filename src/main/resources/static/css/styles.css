@@ -1,0 +1,37 @@
+/* styles.css */
+
+/* Fondo y color de texto */
+body {
+    background-color: #2e2e2e;
+    color: #ffffff;
+}
+
+/* Sobrescribir color de botones */
+.btn-primary {
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+}
+
+.btn-secondary {
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+}
+
+/* Sobrescribir color de enlaces en la navegación */
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #1abc9c;
+}
+
+/* Tabla personalizada */
+.table-dark {
+    background-color: #444;
+    color: #fff;
+}
+
+.table-dark th, .table-dark td {
+    border-color: #555;
+}
